@@ -28,10 +28,12 @@ bool SerialInterface::open(const std::string &port, int badurate) {
      }
      catch (const LibSerial::OpenFailed& e) {
           lastError = "Open failed: " + std::string(e.what());
+          std::cout << lastError << std::endl;
           return false;
      }
      catch (const std::exception& e) {
           lastError = "Exception: " + std::string(e.what());
+          std::cout << lastError << std::endl;
           return false;
      }
 }
@@ -55,6 +57,7 @@ ssize_t SerialInterface::write(const std::vector<uint8_t> &data) {
      }
      catch (const std::exception& e) {
           lastError = "Write error: " + std::string(e.what());
+          std::cout << lastError << std::endl;
           return -1;
      }
 }
@@ -71,10 +74,15 @@ ssize_t SerialInterface::read(std::vector<uint8_t> &buffer, size_t size) {
           size_t bytesRead = size - bytesAvailable;
 
           buffer.resize(bytesRead);
-          return bytesRead;
+          return buffer.size();
+     }
+     catch (const LibSerial::ReadTimeout&) {
+          if (buffer.empty()) return -1;
+          return buffer.size();
      }
      catch (const std::exception& e) {
           lastError = "Read error: " + std::string(e.what());
+          std::cout << lastError << std::endl;
           return -1;
      }
 }
@@ -89,6 +97,7 @@ ssize_t SerialInterface::read(std::vector<uint8_t> &buffer, size_t size) {
      }
      catch (const std::exception& e) {
           lastError = "Timeout error: " + std::string(e.what());
+          std::cout << lastError << std::endl;
           return false;
      }
 }*/

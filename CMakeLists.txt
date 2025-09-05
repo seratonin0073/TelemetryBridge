@@ -29,6 +29,8 @@ add_executable(TelemetryBridge
         src/serial_interface.cpp
         src/telemetry_bridge.cpp
         src/upd_interface.cpp
+        src/test_file.cpp
+        include/test_file.h
 )
 
 target_link_libraries(TelemetryBridge

@@ -27,6 +27,10 @@ public:
     void flush();
     int available() const;
 
+    //testMode
+    void enabeleTestMode(bool enable);
+    void setTestData(const std::vector<uint8_t>& testData);
+
 private:
     LibSerial::SerialPort serialPort;
     bool portOpen;
