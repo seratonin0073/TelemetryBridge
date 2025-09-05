@@ -6,12 +6,14 @@
 #define TELEMETRYBRIDGE_TESTFILE_H
 
 #include "serial_interface.h"
+#include "msp_parser.h"
 #include <string>
 #include <atomic>
 
 class Test {
 public:
-    bool serialInterfaceTestBasicIO(const std::string& port1, const std::string& port2, int baud);
+    void serialInterfaceTestBasicIO(const std::string& port1, const std::string& port2, int baud);
+    void testMSPParser();
 };
 
 
