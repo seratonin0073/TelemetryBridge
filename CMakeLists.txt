@@ -31,6 +31,7 @@ add_executable(TelemetryBridge
         src/upd_interface.cpp
         src/test_file.cpp
         include/test_file.h
+        src/msp_parser.cpp
 )
 
 target_link_libraries(TelemetryBridge
