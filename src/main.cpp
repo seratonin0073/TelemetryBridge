@@ -16,6 +16,8 @@ void test_serial() {
     test.serialInterfaceTestBasicIO(PORT1, INVALID_PORT, BUAD);
 }
 
+
+
 void test_msp_parser() {
     Test test;
     test.testMSPParser();
@@ -24,5 +26,6 @@ void test_msp_parser() {
 
 int main()
 {
+    test_serial();
     return 0;
 }

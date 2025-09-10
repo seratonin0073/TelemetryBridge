@@ -36,7 +36,7 @@ void Test::serialInterfaceTestBasicIO(const std::string &port1, const std::strin
     std::string receivedText(receiveData.begin(),receiveData.end());
     if (read != written) {
         std::cout << "Data size mismatch" << std::endl;
-        //std::cout << "read: " << read << " " << receivedText << " written: " << written << " " << testMessage << std::endl;
+        std::cout << "read: " << read << " " << receivedText << " written: " << written << " " << testMessage << std::endl;
         return;
     }
 
